@@ -19,7 +19,7 @@ class CreatingPath():
         # Create new dir with right path
         path = os.path.join(current_directory,
                             "../bot-farm-topics",
-                            self.path_name, "datatopics")
+                            self.path_name, "datatopics/simple")
         try:
             os.makedirs(path)
             print("Folder %s created!" % path)

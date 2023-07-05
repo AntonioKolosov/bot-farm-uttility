@@ -10,6 +10,7 @@ This is a simple uttility for bot-farm project.
 
 
 from creating_path.creating_path import CreatingPath
+from creating_file.creating_file import JSONCreator
 
 
 def main():
@@ -17,6 +18,12 @@ def main():
     pth = CreatingPath()
     pth.get_input()
     pth.path()
+
+    base_directory = "../bot-farm-topics"
+    directory_name = pth.path_name
+
+    creator = JSONCreator(base_directory)
+    creator.create_json(directory_name, "metadata.json", creator.metadata)
 
 
 if __name__ == "__main__":
