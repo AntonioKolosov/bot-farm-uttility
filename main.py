@@ -15,13 +15,8 @@ from src.make_topic_files.make_metadata import MakeMetadata
 from src.topic_descriptor.topic_descriptor import TopicDescriptor
 
 
-def main():
-    """Main flow"""
-    bot_name = input("Print bot-name alias: ").strip()
-    dscr = TopicDescriptor(bot_name)
-    ft_maker = MakeFolderTree(dscr)
-    ft_maker.make()
-
+def make_command_list():
+    """"""
     command_list = ["start", "help"]
     new_commands = input("New commands(separate by comma): ").strip()
     if len(new_commands) > 0:
@@ -30,12 +25,28 @@ def main():
         else:
             new_commands_list = [new_commands]
         command_list = [*command_list, *new_commands_list]
-    for cmd in command_list:
+    return command_list
+
+
+def make_topic_files(cmd_list, dscr):
+    """"""
+    for cmd in cmd_list:
         dscr.command = cmd.strip()
         md_maker = MakeMetadata(dscr)
         md_maker.make()
         cn_maker = MakeContent(dscr)
         cn_maker.make()
+
+
+def main():
+    """Main flow"""
+    bot_name = input("Print bot-name alias: ").strip()
+    dscr = TopicDescriptor(bot_name)
+    ft_maker = MakeFolderTree(dscr)
+    ft_maker.make()
+    cmd_list = make_command_list()
+    m_t_files = make_topic_files(cmd_list, dscr)
+    
 
 if __name__ == "__main__":
     main()

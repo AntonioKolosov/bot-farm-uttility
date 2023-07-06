@@ -11,7 +11,7 @@ class MakeContent():
     def __init__(self, descr: TopicDescriptor):
         self.__descr = descr
         self.__file_name = f'{descr.bot_name}_{descr.command}'
-        self.__content: str = "Hello, User!"
+        self.__content: str = "Default Content!"
 
     def make(self):
         """Create content in right path"""

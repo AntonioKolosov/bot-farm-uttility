@@ -31,7 +31,7 @@ class MakeMetadata:
         try:
             os.makedirs(md_path, exist_ok=True)
             with open(md_full_name, "w") as json_file:
-                json.dump(self.__metadata, json_file)
+                json.dump(self.__metadata, json_file, indent="\t")
                 print("JSON-file created:", md_full_name)
         except FileExistsError:
             print("Directory have already exist:", md_path)

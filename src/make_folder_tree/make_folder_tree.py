@@ -4,6 +4,7 @@ Creating path package
 
 
 import os
+import shutil
 
 from src.topic_descriptor.topic_descriptor import TopicDescriptor
 
@@ -27,3 +28,11 @@ class MakeFolderTree():
             print("Folder %s created!" % path)
         except FileExistsError:
             print("Folder %s already exists" % path)
+            re_create = input("Press Y/y to continue re-create path or N/n"
+                              "to add new files to the existing directory: ")
+            if re_create.lower() == "y":
+                shutil.rmtree(path)
+                os.makedirs(path)
+                print("Folder %s re-created!" % path)
+            else:
+                print("Files will be added to the existing directory.")
