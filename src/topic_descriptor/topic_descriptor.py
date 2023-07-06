@@ -9,3 +9,4 @@ class TopicDescriptor():
         self.md_folder = "datatopics"
         self.cn_folder = "simple"
         self.bot_name = bot_name
+        self.command = ""

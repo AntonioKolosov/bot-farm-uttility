@@ -1,0 +1,11 @@
+{
+    "id": 0,
+    "name": "",
+    "description": "",
+    "type": "simple",
+    "service_type": "TG",
+    "service_id": "",
+    "chats_ids": [],
+    "buttons": [],
+    "content": ""
+}

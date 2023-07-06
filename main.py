@@ -22,11 +22,20 @@ def main():
     ft_maker = MakeFolderTree(dscr)
     ft_maker.make()
 
-    md_maker = MakeMetadata(dscr, f'{bot_name}_start')
-    md_maker.make()
-
-    cn_maker = MakeContent(dscr, f'{bot_name}_start')
-    cn_maker.make()
+    command_list = ["start", "help"]
+    new_commands = input("New commands(separate by comma): ").strip()
+    if len(new_commands) > 0:
+        if "," in new_commands:
+            new_commands_list = new_commands.split(",")
+        else:
+            new_commands_list = [new_commands]
+        command_list = [*command_list, *new_commands_list]
+    for cmd in command_list:
+        dscr.command = cmd.strip()
+        md_maker = MakeMetadata(dscr)
+        md_maker.make()
+        cn_maker = MakeContent(dscr)
+        cn_maker.make()
 
 if __name__ == "__main__":
     main()

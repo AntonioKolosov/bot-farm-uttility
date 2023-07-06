@@ -8,9 +8,9 @@ from src.topic_descriptor.topic_descriptor import TopicDescriptor
 
 
 class MakeContent():
-    def __init__(self, descr: TopicDescriptor, file_name: str):
+    def __init__(self, descr: TopicDescriptor):
         self.__descr = descr
-        self.__file_name = file_name
+        self.__file_name = f'{descr.bot_name}_{descr.command}'
         self.__content: str = "Hello, User!"
 
     def make(self):
